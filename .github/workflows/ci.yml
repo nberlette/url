@@ -70,20 +70,20 @@ jobs:
           github.event_name == 'workflow_dispatch' &&
           github.event.inputs.deno-test == 'true'
         name: deno test
-        run: deno test -A --no-check=remote --parallel --permit-no-files
+        run: deno test -A --no-check=remote --parallel --coverage=.coverage --permit-no-files --clean
 
       - if: |
           github.event_name != 'workflow_dispatch' ||
           github.event.inputs.doc-test == 'true'
         name: deno test --doc
-        run: deno test -A --no-check=remote --parallel --doc
+        run: deno test -A --no-check=remote --parallel --coverage=.coverage --permit-no-files --clean --doc
 
       - if: |
           runner.os == 'Linux' &&
           github.event_name == 'workflow_dispatch' &&
           github.event.inputs.doc-lint == 'true'
         name: deno doc --lint
-        run: deno doc --lint mod.ts src/install.ts
+        run: deno doc --lint mod.ts src/install.ts src/url.ts src/url_search_params.ts
 
       # only need to run this once
       - if: |
@@ -92,7 +92,7 @@ jobs:
             github.event.inputs.deno-lint == 'true'
           )
         name: deno lint
-        run: deno lint
+        run: deno lint mod.ts src/install.ts src/url.ts src/url_search_params.ts src/shim.ts
 
       # only need to run this once
       - if: |
