@@ -1,6 +1,6 @@
 {
   "name": "@nick/url",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": {
     "name": "Nicholas Berlette",
@@ -22,7 +22,7 @@
   },
   "publish": {
     "include": ["**/*.ts", "**/*.json", "**/*.md", "LICENSE"],
-    "exclude": ["**/.*", "**/*.test.*", "**/*.bench.*"]
+    "exclude": ["**/.*", "**/*.test.*", "**/*.bench.*", "!src/shim.*"]
   },
   "exclude": ["src/shim.ts", "src/shim.d.ts"]
 }
