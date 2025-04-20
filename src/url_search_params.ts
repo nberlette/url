@@ -29,7 +29,6 @@
  *
  * @module url-search-params
  */
-import "@nick/url/shim";
 import {
   $ObjectHasOwn,
   $String,
