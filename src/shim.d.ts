@@ -3,7 +3,8 @@
 // deno-lint-ignore-file no-explicit-any no-var
 
 /**
- * Iterator for the URLSearchParams class, used to iterate over key-value pairs in search parameters.
+ * Iterator for the URLSearchParams class, used to iterate over key-value pairs
+ * in search parameters.
  *
  * @example
  * ```ts
