@@ -48,7 +48,7 @@ for (const { name, URL } of subjects) {
     fn: () => {
       try {
         new URL("invalid-url");
-      } catch {}
+      } catch { /* ignore */ }
     },
   });
 
