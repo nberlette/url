@@ -14,7 +14,5 @@
  */
 import "./shim.d.ts";
 import { install } from "./install.ts";
-import { $setTimeout } from "./_internal.ts";
 
-// TODO(nberlette): is this really necessary? Can't we just call it directly?
-$setTimeout(install, 0);
+install();

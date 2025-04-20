@@ -25,8 +25,6 @@ export const uncurryThis: <T, A extends readonly any[], R = any>(
   _self?: T,
 ) => (self: T, ...args: A) => R = bind.bind(call);
 
-export const $setTimeout: typeof globalThis.setTimeout = globalThis.setTimeout;
-
 export const $FunctionPrototypeBind: <T, A extends any[], B extends any[], R>(
   self: (this: T, ...args: [...A, ...B]) => R,
   thisArg: T,
