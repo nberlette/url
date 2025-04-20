@@ -3,10 +3,10 @@
 <h1>
 
 <picture alt="@nick/url" title="@nick/url">
-  <source type="image/svg+xml" srcset="./.github/assets/logo.svg" />
-  <source type="image/png" srcset="./.github/assets/logo@2x.png" media="(device-pixel-ratio: 2)" />
-  <source type="image/png" srcset="./.github/assets/logo@3x.png" media="(device-pixel-ratio: 3)" />
-  <img src="./.github/assets/logo.svg" alt="@nick/url" width="40%" height="auto" />
+  <source type="image/svg+xml" srcset="https://raw.githubusercontent.com/nberlette/url/main/.github/assets/logo.svg" />
+  <source type="image/png" srcset="https://raw.githubusercontent.com/nberlette/url/main/.github/assets/logo@2x.png" media="(device-pixel-ratio: 2)" />
+  <source type="image/png" srcset="https://raw.githubusercontent.com/nberlette/url/main/.github/assets/logo@3x.png" media="(device-pixel-ratio: 3)" />
+  <img src="https://raw.githubusercontent.com/nberlette/url/main/.github/assets/logo.svg" alt="@nick/url" width="40%" height="auto" />
 </picture>
 
 </h1>
@@ -30,13 +30,12 @@ can be used with a side-effect import to automatically add the `URL` and/or
 Alternatively, the shimming can be performed on demand, by using the `install`,
 `installURL`, or `installURLSearchParams` functions of the `./install` module.
 
-
-> Ponyfills are the recommended alternative to the typical
-> polyfill approach, as they do not modify the global scope. Instead, users can
-> import the ponyfilled APIs directly into their code on an as-needed basis.
+> Ponyfills are the recommended alternative to the typical polyfill approach, as
+> they do not modify the global scope. Instead, users can import the ponyfilled
+> APIs directly into their code on an as-needed basis.
 >
 > **[↪︎ Click here for a breakdown of ponyfills by Sindre Sorhus][ponyfill]**
->
+
 ---
 
 ## Install
@@ -158,11 +157,7 @@ console.assert(params instanceof URLSearchParams);
 Use the following functions to explicitly polyfill the global scope:
 
 ```ts
-import {
-  install,
-  installURL,
-  installURLSearchParams,
-} from "@nick/url/install";
+import { install, installURL, installURLSearchParams } from "@nick/url/install";
 
 // Polyfill both URL and URLSearchParams if missing
 const result = install();
@@ -235,10 +230,10 @@ and `searchParamsInstalled` will be `true` if `URLSearchParams` was added.
 installURL(): boolean;
 ```
 
-The `installURL()` function focuses solely on polyfilling the `URL` global.
-When invoked, it checks if `URL` is already defined; if not, it installs the
-ponyfill and returns `true`. If `URL` was already present, it does nothing and
-returns `false`.
+The `installURL()` function focuses solely on polyfilling the `URL` global. When
+invoked, it checks if `URL` is already defined; if not, it installs the ponyfill
+and returns `true`. If `URL` was already present, it does nothing and returns
+`false`.
 
 ##### `installURLSearchParams()`
 
@@ -352,9 +347,9 @@ Create an object URL for a given `Blob`.
 
 > [!WARNING]
 >
-> This method is a stub implementation, since it is not possible to create
-> or revoke object URLs from purely userland JavaScript code. It will not
-> throw any errors, but it will not actually perform the intended operation.
+> This method is a stub implementation, since it is not possible to create or
+> revoke object URLs from purely userland JavaScript code. It will not throw any
+> errors, but it will not actually perform the intended operation.
 
 ##### `revokeObjectURL`
 
@@ -366,9 +361,9 @@ Release an object URL previously created with `createObjectURL`.
 
 > [!WARNING]
 >
-> This method is a stub implementation, since it is not possible to create
-> or revoke object URLs from purely userland JavaScript code. It will not
-> throw any errors, but it will not actually perform the intended operation.
+> This method is a stub implementation, since it is not possible to create or
+> revoke object URLs from purely userland JavaScript code. It will not throw any
+> errors, but it will not actually perform the intended operation.
 
 [URL documentation]: https://developer.mozilla.org/en-US/docs/Web/API/URL "View the URL documentation on MDN"
 
@@ -377,7 +372,6 @@ Release an object URL previously created with `createObjectURL`.
 ### `URLSearchParams`
 
 Spec-compliant ponyfill implementation of the `URLSearchParams` interface.
-
 
 > [!NOTE]
 >
@@ -436,7 +430,6 @@ delete(name: string): void;
 Removes a specific value from the given key. If the key does not exist, this
 method does nothing. All other values associated with the key are left as-is.
 
-
 ```ts ignore
 delete(name: string, value: string): void;
 ```
@@ -453,8 +446,8 @@ get(name: string): string | null;
 
 ##### `getAll`
 
-Retrieve all values for the key. If the key does not exist, or exists but
-has no values, this method returns an empty array.
+Retrieve all values for the key. If the key does not exist, or exists but has no
+values, this method returns an empty array.
 
 ```ts ignore
 getAll(name: string): string[];
@@ -464,8 +457,8 @@ getAll(name: string): string[];
 
 ###### Overload 1 (single argument)
 
-Check if the key exists. If the key does not exist, this method returns
-`false`. If the key exists but has no values, this method returns `true`.
+Check if the key exists. If the key does not exist, this method returns `false`.
+If the key exists but has no values, this method returns `true`.
 
 ```ts ignore
 has(name: string): boolean;
@@ -534,9 +527,9 @@ Calls the provided callback function once for each key/value pair in the
 `URLSearchParams` instance, in the order in which they were added.
 
 The callback function is invoked with three arguments: the current value, the
-key of the current key/value pair, and the `URLSearchParams` instance itself.
-An optional `thisArg` parameter can be provided to set the value of `this` in
-the callback function (default is `undefined`).
+key of the current key/value pair, and the `URLSearchParams` instance itself. An
+optional `thisArg` parameter can be provided to set the value of `this` in the
+callback function (default is `undefined`).
 
 ```ts ignore
 forEach<This = void>(
@@ -547,9 +540,9 @@ forEach<This = void>(
 
 ##### `toString`
 
-Returns a string representation of the `URLSearchParams` instance, serializing the
-parameters in the order in which they were added, with `&` separating each pair, and
-`=` separating the key and value.
+Returns a string representation of the `URLSearchParams` instance, serializing
+the parameters in the order in which they were added, with `&` separating each
+pair, and `=` separating the key and value.
 
 ```ts ignore
 toString(): string;
@@ -557,8 +550,9 @@ toString(): string;
 
 ##### `toJSON`
 
-This is an alias for [`toString`](#toString), provided for spec compatibility. This
-is called by the semantics of the native `JSON.stringify` API, allowing `URLSearchParams` instances to be serialized to JSON.
+This is an alias for [`toString`](#toString), provided for spec compatibility.
+This is called by the semantics of the native `JSON.stringify` API, allowing
+`URLSearchParams` instances to be serialized to JSON.
 
 ```ts ignore
 toJSON(): string;
@@ -566,10 +560,11 @@ toJSON(): string;
 
 ##### `[Symbol.iterator]`
 
-This is an alias for the [`entries`](#entries) method. It returns an iterator over
-the entries in the `URLSearchParams` instance, in the order in which they were added.
-This is called internally by the semantics of the native `for...of` loop and other
-ES2015+ iteration APIs (e.g. spread operators, `Array.from`, etc.).
+This is an alias for the [`entries`](#entries) method. It returns an iterator
+over the entries in the `URLSearchParams` instance, in the order in which they
+were added. This is called internally by the semantics of the native `for...of`
+loop and other ES2015+ iteration APIs (e.g. spread operators, `Array.from`,
+etc.).
 
 ```ts ignore
 [Symbol.iterator](): URLSearchParamsIterator<[string, string]>;
