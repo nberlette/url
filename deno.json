@@ -1,0 +1,28 @@
+{
+  "name": "@nick/url",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Nicholas Berlette",
+    "email": "nick@berlette.com",
+    "url": "https://github.com/nberlette/url"
+  },
+  "exports": {
+    ".": "./mod.ts",
+    "./install": "./src/install.ts",
+    "./shim": "./src/shim.ts",
+    "./shim.d.ts": "./src/shim.d.ts",
+    "./url-search-params": "./src/url_search_params.ts",
+    "./url": "./src/url.ts"
+  },
+  "imports": {
+    "@std/testing": "jsr:@std/testing@1.0.11",
+    "@std/expect": "jsr:@std/expect@1.0.15",
+    "@std/assert": "jsr:@std/assert@1.0.12"
+  },
+  "publish": {
+    "include": ["**/*.ts", "**/*.json", "**/*.md", "LICENSE"],
+    "exclude": ["**/.*", "**/*.test.*", "**/*.bench.*"]
+  },
+  "exclude": ["src/shim.ts", "src/shim.d.ts"]
+}
